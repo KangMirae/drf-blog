@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}글 작성하기{% endblock %}
+{% block content %}
+
+<h1 class="mb-4">🖋️ 새 글 작성</h1>
+
+<div class="card p-4 shadow-sm">
+    <form id="new-post-form">
+        <div class="mb-3">
+            <label class="form-label">제목</label>
+            <input type="text" id="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">내용</label>
+            <textarea id="content" class="form-control" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">💾 작성</button>
+        <a href="/" class="btn btn-secondary">← 목록</a>
+    </form>
+</div>
+
+<script>
+document.getElementById('new-post-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const title = document.getElementById('title').value.trim();
+    const content = document.getElementById('content').value.trim();
+
+    fetch('/api/posts/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: JSON.stringify({ title, content })
+    })
+    .then(res => {
+        if (res.ok) {
+            alert('작성 완료!');
+            window.location.href = '/'; // 메인으로 이동
+        } else {
+            alert('작성 실패!');
+        }
+    });
+});
+</script>
+
+{% endblock %}
