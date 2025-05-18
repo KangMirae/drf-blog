@@ -17,11 +17,6 @@ Django REST Framework와 Bootstrap을 활용한 API 기반 블로그 프로젝�
 - ✅ Bootstrap 기반 UI
 - ✅ GitHub 연동 및 프로젝트 정리 완료
 
----
-
-## 📷 예시 화면
-
-> (👉 스크린샷 추가 예정 — `screenshots/` 폴더에 이미지 넣고 첨부 가능)
 
 ---
 
@@ -93,12 +88,6 @@ The frontend uses Django templates along with `fetch()` in JavaScript to interac
 - ✅ Authorization: only authors can edit/delete their content
 - ✅ Bootstrap-based responsive UI
 - ✅ GitHub integrated & documented
-
----
-
-## 📷 Screenshots
-
-> (👉 You can add screenshots later under a `screenshots/` folder)
 
 ---
 
